@@ -31,6 +31,7 @@ Your Glue job needs permission to read from and write to S3.
 4.  Attach the `AWSGlueServiceRole` managed policy.
 5.  Attach the `AmazonS3FullAccess` policy (for this demo) or a more restrictive policy that only grants access to your two buckets.
 6.  Name the role `AWSGlueServiceRole-Reviews` and create it.
+![IAM Role](https://raw.githubusercontent.com/sasi703/Hands-on-12-Spark-on-AWS/main/IAM%20Role.png)
 
 ### 4. Create the AWS Glue ETL Job
 1.  Go to the **AWS Glue** service.
