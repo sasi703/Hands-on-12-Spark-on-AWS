@@ -1,13 +1,6 @@
 # Hands-on-12-Spark-on-AWS
 # Serverless Spark ETL Pipeline on AWS
 
-This project is a hands-on assignment demonstrating a fully automated, event-driven serverless data pipeline on AWS.
-
-The pipeline automatically ingests raw CSV product review data, processes it using a Spark ETL job, runs analytical SQL queries on the data, and saves the aggregated results back to S3.
-
----
-
-
 ## 🔧 Setup and Deployment
 
 Follow these steps to deploy the pipeline in your own AWS account.
@@ -86,6 +79,7 @@ The new Lambda role needs permission to start a Glue job.
 4.  Select your `handsonfinallanding` bucket.
 5.  Set the **Event type** to `s3:ObjectCreated:*` (or "All object create events").
 6.  Acknowledge the recursive invocation warning and click **Add**.
+![Trigger](https://raw.githubusercontent.com/sasi703/Hands-on-12-Spark-on-AWS/main/Trigger.png)
 
 ---
 
@@ -97,24 +91,21 @@ Your pipeline is now fully deployed and automated!
 2.  Upload `reviews.csv` to the root of your `handsonfinallanding` S3 bucket.
 3.  This will trigger the Lambda, which in turn starts the Glue job.
 4.  You can monitor the job's progress in the **AWS Glue** console under the **Monitoring** tab.
+![Landing Bucket](https://raw.githubusercontent.com/sasi703/Hands-on-12-Spark-on-AWS/main/Landing%20Bucket.png)
 
 ---
 
 ## 📈 Query Results
 
 After the job (which may take 2-3 minutes to run), navigate to your `handsonfinalprocessed` bucket. You will find the results in the `Athena Results/` folder, organized into sub-folders for each query:
+![Processed Bucket](https://raw.githubusercontent.com/sasi703/Hands-on-12-Spark-on-AWS/main/Processed%20Bucket.png)
 
 * `s3://handsonfinalprocessed/Athena Results/daily_review_counts/`
 * `s3://handsonfinalprocessed/Athena Results/top_5_customers/`
 * `s3://handsonfinalprocessed/Athena Results/rating_distribution/`
+![Athena Results](https://raw.githubusercontent.com/sasi703/Hands-on-12-Spark-on-AWS/main/Athena%20Results.png)
 
 You will also find the complete, cleaned dataset in `s3://handsonfinalprocessed/processed-data/`.
+![Processed Data](https://raw.githubusercontent.com/sasi703/Hands-on-12-Spark-on-AWS/main/Processed%20Data.png)
 
----
-## 🧹 Cleanup
 
-To avoid any future charges (especially if you're on the Free Tier), be sure to delete the resources you created:
-1.  Empty and delete the `handsonfinallanding` and `handsonfinalprocessed` S3 buckets.
-2.  Delete the `start_glue_job_trigger` Lambda function.
-3.  Delete the `process_reviews_job` Glue job.
-4.  Delete the `AWSGlueServiceRole-Reviews` IAM role.
