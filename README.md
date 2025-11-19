@@ -14,7 +14,8 @@ Create two S3 buckets with globally unique names:
 * `handsonfinallanding`: This is where you will upload your raw data.
 * `handsonfinalprocessed`: This is where the processed data and query results will be stored.
   
-![S3 Bucket](https://raw.githubusercontent.com/sasi703/Hands-on-12-Spark-on-AWS/main/S3%20B)
+![S3 Bucket](https://raw.githubusercontent.com/sasi703/Hands-on-12-Spark-on-AWS/main/S3%20Bucket.png)
+
 
 ### 3. Create IAM Role for AWS Glue
 Your Glue job needs permission to read from and write to S3.
