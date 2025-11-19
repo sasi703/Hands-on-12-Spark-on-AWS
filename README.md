@@ -44,6 +44,7 @@ Your Glue job needs permission to read from and write to S3.
 8.  Save the job.
 
 > **Note:** The script is already configured to use the `handsonfinallanding` and `handsonfinalprocessed` buckets.
+![Glue Job](https://raw.githubusercontent.com/sasi703/Hands-on-12-Spark-on-AWS/main/Glue%20Job.png)
 
 ### 5. Create the Lambda Trigger Function
 This function will start the Glue job when a file is uploaded.
